@@ -1,3 +1,5 @@
+import { RegisterForm } from './components/register_form';
+
 function App() {
   return (
     <div className="App">
@@ -5,6 +7,8 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+
+        <RegisterForm />
       </header>
     </div>
   );
