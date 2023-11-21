@@ -4,12 +4,36 @@ import './register_form.css';
 import NumericInputComponent from "../numeric_input_component"
 import { GreenSubmitButton } from '../green_submit_button';
 //EVENTS
-import { handleButtonClick } from '../../events/event_handler';
+import axios from 'axios';
+
+function registerInBackernd(number: number, eventId: number){
+  
+  const response = axios.post('http://localhost:3001/api/v1/posts', {
+    username: number,
+    content: eventId
+  })
+  .then(function (response) {
+    alert(response);
+  })
+  .catch(function (error) {
+    alert(error);
+  });
+}
 
 function RegisterForm(){
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    var number: number = parseInt(
+      (document.getElementById('numeric_input') as HTMLInputElement).value
+    );
+    
+    registerInBackernd(number, 1)
+  };
+
   return (
     <div className="container">
-      <form onSubmit={handleButtonClick}>
+      <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-100">
             <NumericInputComponent/>
@@ -26,6 +50,3 @@ function RegisterForm(){
 }
 
 export {RegisterForm}
-
-
-

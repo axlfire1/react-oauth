@@ -19,6 +19,7 @@ const NumericInputComponent: React.FC = () => {
     <input
       className="numeric_input"
       type="text"
+      id='numeric_input'
       value={numericValue === '' ? '' : numericValue.toString()}
       onChange={handleInputChange}
       placeholder="Ingresar Número"
