@@ -5,17 +5,17 @@ import { createNewEvent } from '../../functions/graphql_requests';
 import NumericInputComponent from "../numeric_input_component"
 import { GreenSubmitButton } from '../green_submit_button';
 
-function RegisterForm(){
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    var number: number = parseInt(
-      (document.getElementById('numeric_input') as HTMLInputElement).value
-    );
-    
-    createNewEvent(number, 1);
-  };
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  var number: number = parseInt(
+    (document.getElementById('numeric_input') as HTMLInputElement).value
+  );
+  
+  createNewEvent(number, 1);
+};
 
+export const RegisterForm = (): JSX.Element => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
@@ -33,5 +33,3 @@ function RegisterForm(){
     </div>
   )
 }
-
-export {RegisterForm}
