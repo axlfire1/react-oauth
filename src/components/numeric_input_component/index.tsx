@@ -1,8 +1,10 @@
 import './numeric_input_component.css';
 import React, { ChangeEvent, useState } from 'react';
-  
-export const NumericInputComponent = (): JSX.Element => {
+
+const NumericInputComponent: React.FC = () => {
+
   const [numericValue, setNumericValue] = useState<number | ''>('');
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputText = event.target.value;
 
