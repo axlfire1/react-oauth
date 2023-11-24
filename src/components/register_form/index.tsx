@@ -5,20 +5,18 @@ import { createNewEvent } from '../../functions/graphql_requests';
 import NumericInputComponent from "../numeric_input_component"
 import { GreenSubmitButton } from '../green_submit_button';
 
-
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
-  var number: number = parseInt(
-    (document.getElementById('numeric_input') as HTMLInputElement).value
-  );
-  
-  createNewEvent(number, 1);
+  var number: number = parseInt((document.getElementById('numeric_input') as HTMLInputElement).value);
+  createNewEvent(number);
 };
 
 export const RegisterForm = (): JSX.Element => {
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+      >
         <div className="row">
           <div className="col-100">
             <NumericInputComponent/>

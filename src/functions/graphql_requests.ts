@@ -1,4 +1,4 @@
-export const createNewEvent = (number: number, eventId: number) => {    
+export const createNewEvent = (number: number) => {    
   const graphqlEndpoint = 'https://a644-201-166-173-50.ngrok-free.app/graphql';
 
   // GraphQL query or mutation

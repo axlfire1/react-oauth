@@ -1,15 +1,12 @@
 import './green_submit_button.css'
-import React from 'react';
+import { useSubmitContext } from "../form_context/index";
 
-interface ComponentProps {  
-  isSubmitDisabled: boolean;
-}
- 
-const GreenSubmitButton: React.FC<ComponentProps> = ({isSubmitDisabled}) => {
-  console.log(isSubmitDisabled);
+const GreenSubmitButton = (): JSX.Element => {
+  const buttonDisabled = useSubmitContext();
+
   return (
     <input
-      disabled={isSubmitDisabled}
+      disabled={buttonDisabled}
       id="greenButton"
       type="submit"
       value="Registrar"
