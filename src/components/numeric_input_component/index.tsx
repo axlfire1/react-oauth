@@ -16,11 +16,14 @@ const NumericInputComponent: React.FC = () => {
     const inputText = event.target.value;
     if (/^\d*$/.test(inputText)) { // Check if the input is a valid number
       setNumericValue(inputText === '' ? '' : parseInt(inputText, 10));
-    }
-    
-    // TODO FIX FUNCTION
-    if(inputText){
-      enabled.myFunction();
+
+      console.log("ENPUT TEXT IS:" + inputText)
+
+      if(inputText){
+        enabled.myFunction(false);
+      }else {
+        enabled.myFunction(true);
+      }
     }
   };
 

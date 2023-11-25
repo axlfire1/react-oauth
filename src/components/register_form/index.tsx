@@ -7,15 +7,18 @@ import NumericInputComponent from '../numeric_input_component';
 import { GreenSubmitButton } from '../green_submit_button';
 import { handleSubmit } from '../../functions/handle_submit';
 
-//CONTEXT
 import { globalContext, ContextProps, EmptyInput } from '../../contexts/form_context'
 
 export const RegisterForm = (): JSX.Element => {
   const [emptyTextField, setEmptyTextField] = useState<EmptyInput>(true);
+ 
+  const myFunction = (param: boolean) => {
+    setEmptyTextField(param);
+  };
 
   const contextValue: ContextProps = {
     emptyFieldText: emptyTextField,
-    myFunction: () => setEmptyTextField((prev) => !prev),
+    myFunction: myFunction
   };
 
   return (

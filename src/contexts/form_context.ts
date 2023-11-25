@@ -4,7 +4,7 @@ import React from 'react'
 export type EmptyInput = true | false;
 export interface ContextProps {
   emptyFieldText: EmptyInput;
-  myFunction: () => void;
+  myFunction: (flag: boolean) => void;
 }
 
 // CONTEXT
