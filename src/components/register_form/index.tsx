@@ -7,15 +7,8 @@ import NumericInputComponent from '../numeric_input_component';
 import { GreenSubmitButton } from '../green_submit_button';
 import { handleSubmit } from '../../functions/handle_submit';
 
-//TYPES AND INTERFACES
-export type EmptyInput = true | false;
-export interface ContextProps {
-  emptyFieldText: EmptyInput;
-  myFunction: () => void;
-}
-
-// CONTEXT
-export const globalContext = React.createContext<ContextProps | undefined>(undefined);
+//CONTEXT
+import { globalContext, ContextProps, EmptyInput } from '../../contexts/form_context'
 
 export const RegisterForm = (): JSX.Element => {
   const [emptyTextField, setEmptyTextField] = useState<EmptyInput>(true);

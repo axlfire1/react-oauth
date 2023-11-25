@@ -1,7 +1,7 @@
 // Importing CSS
 import './green_submit_button.css';
 import { useContext } from 'react';
-import { globalContext } from '../register_form/index';
+import { globalContext } from '../../contexts/form_context'
 
 const GreenSubmitButton = (): JSX.Element => {
   const enabled = useContext(globalContext);
