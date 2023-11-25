@@ -1,18 +1,24 @@
-import './green_submit_button.css'
-import { useSubmitContext } from "../form_context/index";
+// Importing CSS
+import './green_submit_button.css';
+import { useContext } from 'react';
+import { globalContext } from '../register_form/index';
 
 const GreenSubmitButton = (): JSX.Element => {
-  const buttonDisabled = useSubmitContext();
+  const enabled = useContext(globalContext);
+
+  if (!enabled) {
+    throw new Error('Global context not provided');
+  }
 
   return (
     <input
-      disabled={buttonDisabled}
+      disabled={enabled.emptyFieldText}
       id="greenButton"
       type="submit"
       value="Registrar"
       className='numeric_input'
     />
-  )
-}
+  );
+};
 
-export {GreenSubmitButton}
+export { GreenSubmitButton };

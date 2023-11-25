@@ -1,33 +1,46 @@
-//STYLE SHEETS
+// STYLE SHEETS
 import './register_form.css';
-import { createNewEvent } from '../../functions/graphql_requests';
-//COMPONENTS
-import NumericInputComponent from "../numeric_input_component"
-import { GreenSubmitButton } from '../green_submit_button';
 
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
-  var number: number = parseInt((document.getElementById('numeric_input') as HTMLInputElement).value);
-  createNewEvent(number);
-};
+// COMPONENTS
+import React, { useState } from 'react';
+import NumericInputComponent from '../numeric_input_component';
+import { GreenSubmitButton } from '../green_submit_button';
+import { handleSubmit } from '../../functions/handle_submit';
+
+//TYPES AND INTERFACES
+export type EmptyInput = true | false;
+export interface ContextProps {
+  emptyFieldText: EmptyInput;
+  myFunction: () => void;
+}
+
+// CONTEXT
+export const globalContext = React.createContext<ContextProps | undefined>(undefined);
 
 export const RegisterForm = (): JSX.Element => {
+  const [emptyTextField, setEmptyTextField] = useState<EmptyInput>(true);
+
+  const contextValue: ContextProps = {
+    emptyFieldText: emptyTextField,
+    myFunction: () => setEmptyTextField((prev) => !prev),
+  };
+
   return (
-    <div className="container">
-      <form
-        onSubmit={handleSubmit}
-      >
-        <div className="row">
-          <div className="col-100">
-            <NumericInputComponent/>
+    <globalContext.Provider value={contextValue}>
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-100">
+              <NumericInputComponent />
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-100">
-            <GreenSubmitButton/>
+          <div className="row">
+            <div className="col-100">
+              <GreenSubmitButton />
+            </div>
           </div>
-        </div>
-      </form>
-    </div>
-  )
-}
+        </form>
+      </div>
+    </globalContext.Provider>
+  );
+};
