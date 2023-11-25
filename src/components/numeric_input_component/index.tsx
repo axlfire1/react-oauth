@@ -17,8 +17,7 @@ const NumericInputComponent: React.FC = () => {
     if (/^\d*$/.test(inputText)) { // Check if the input is a valid number
       setNumericValue(inputText === '' ? '' : parseInt(inputText, 10));
 
-      console.log("ENPUT TEXT IS:" + inputText)
-
+      // change the state in global context
       if(inputText){
         enabled.myFunction(false);
       }else {
