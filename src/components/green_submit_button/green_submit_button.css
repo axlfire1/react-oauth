@@ -1,13 +1,23 @@
-input[type=submit]:hover {
-  background-color: #05a20d;
-}
-
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
+input[type= submit] {
   padding: 12px 20px;
-  border: none;
   border-radius: 4px;
+  border: none;
   cursor: pointer;
   float: right;
+}
+
+.submitButton {
+  background-color: #0099cc;
+  color: #ffffff;
+}
+
+.submitButton:hover {
+  background-color: #00aacc;
+  color: #ffffff;
+}
+
+.submitButton:disabled,
+.submitButton[disabled]{
+  background-color: #cccccc;
+  color: #666666;
 }

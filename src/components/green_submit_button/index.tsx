@@ -16,7 +16,7 @@ const GreenSubmitButton = (): JSX.Element => {
       id="greenButton"
       type="submit"
       value="Registrar"
-      className='numeric_input'
+      className='submitButton'
     />
   );
 };
